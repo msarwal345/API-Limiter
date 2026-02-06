@@ -20,5 +20,6 @@ from core.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('health/',health_check),
-    path('api_limiter/',api_limiter_route)
+    path('api_limiter/',api_limiter_route),
+    path('api_limiter_ip/',api_limiter_ip)
 ]

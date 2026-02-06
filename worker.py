@@ -1,6 +1,5 @@
 from time import sleep
-import time,redis,requests
-import json 
+import redis,requests,json 
 redis_client = redis.Redis(host='127.0.0.1', port=6789, db=0)
 print("Worker started. Listening on api_limiter queue...")
 def process_queue():
@@ -19,7 +18,7 @@ def process_queue():
                     url=task_data['url'],
                     data=task_data['body'],
                     headers=task_data['headers'],
-                    timeout=5
+                    timeout=10
                 )
                 print("Task processed. Status code:",response.status_code)
             except Exception as e:
